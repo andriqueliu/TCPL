@@ -24,8 +24,7 @@ int main()
     if ((c == '\n') || (c == '\t') || (c == ' ')) {
       array[itr++] = count;
       count = 0;
-    } else if (state == OUT) {
-      state = IN;
+    } else {
       ++count;
     }
   }
