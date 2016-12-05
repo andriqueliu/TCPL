@@ -15,9 +15,13 @@ int main()
     array[i] = 0;
   }
   
-  int state = OUT;
-  
+  int state, itr;
+  state = OUT;
+  itr = 0;
+
   while ((c = getchar()) != EOF) {
-    
+    if ((c == '\n') || (c == '\t') || (c == ' ')) {
+      
+    }
   }
 }
