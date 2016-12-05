@@ -5,25 +5,35 @@
 #define OUT 0
 
 // prints input one word per line
-// idea, when you're reached the end of a word, just print the word!
+// print each char, BUT, once you reach a space, print out a newline
 int main()
 {
-  int c, nl, nw, nc, state;
+  // int c, nl, nw, nc, state;
+  int c, state;
 
   state = OUT;
-  nl = nw = nc = 0;
+  // nl = nw = nc = 0;
   while((c = getchar()) != EOF) {
-    ++nc;
+    /*
     if (c == '\n') {
       ++nl;
     }
+    */
+    /*
     if ((c == ' ') || (c == '\n') || (c == '\t')) {
       state = OUT;
+      printf("\n");
     } else if (state == OUT) {
       state = IN;
       ++nw;
     }
+    */
+    if ((c == ' ') || (c == '\n') || (c == '\t')) {
+      printf("\n");
+    } else {
+      printf("%c", c);
+    }
   }
 
-  printf("%d %d %d\n", nl, nw, nc);
+  
 }
