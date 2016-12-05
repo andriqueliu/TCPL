@@ -15,13 +15,25 @@ int main()
     array[i] = 0;
   }
   
-  int state, itr;
+  int state, itr, count, c;
   state = OUT;
   itr = 0;
+  count = 0;
 
   while ((c = getchar()) != EOF) {
     if ((c == '\n') || (c == '\t') || (c == ' ')) {
-      
+      array[itr++] = count;
+      count = 0;
+    } else if (state == OUT) {
+      state = IN;
+      ++count;
     }
+  }
+
+  for (int i = 0; i < 10; i++) {
+    for (int num = 0; num < array[i]; num++) {
+      printf("-");
+    }
+    printf("\n");
   }
 }
