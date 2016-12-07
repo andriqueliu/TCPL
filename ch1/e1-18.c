@@ -18,10 +18,7 @@ int main()
   max = 0;
   // notice: calls a function and returns the length
   while((len = pgetline(line, MAXLINE)) > 0) {
-    if (len > max) {
-      max = len;
-      copy(longest, line);
-    }
+    copy(longest, line);
   }
   // just in case you were given empty input
   if (max > 0) {
