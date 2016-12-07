@@ -9,20 +9,15 @@ void printreverse(int len, char from[], char to[]);
 // reverse the input one line at a time
 int main()
 {
-  int len, max;
+  int len;
   // these are arrays, and actually DO hold their changes unlike auto var.!
-  char line[MAXLINE];
-  char longest[MAXLINE];
-
-  max = 0;
-  // notice: calls a function and returns the length
-  while((len = pgetline(line, MAXLINE)) > 0) {
-    copy(longest, line);
-  }
-  // just in case you were given empty input
-  if (max > 0) {
-    printf("%s", longest);
-  }
+  char from[MAXLINE];
+  char   to[MAXLINE];
+  
+  // beware, this is read-only... 
+  // char from[]  = "Hello it's me!";   // I think the newline and null are implied?
+  len = getslen(from);
+  printreverse(len, from, to);
 
   return 0;
 }
@@ -33,8 +28,9 @@ int getslen(char s[])
   ct = 0;
 
   while ((c = getchar()) != EOF) {
-    ++ct;
+    // ++ct;
     s[ct] = c;
+    ++ct;
   }
   return ct;
 }
@@ -42,9 +38,9 @@ int getslen(char s[])
 void printreverse(int len, char from[], char to[])
 {
   for (int i = 0; i < len; i++) {
-    to[i] = s[len - (1 - i)];
+    to[i] = from[len - (1 + i)];
     // s[len - (1 - i)] = to[i];
   }
   to[len] = '\0';
-  printf("%s\n", to[]);
+  printf("%s\n", to);
 }
