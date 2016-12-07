@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+#define MAX 256
+
 #define IN  1
 #define OUT 0
 
@@ -10,29 +12,28 @@
 // arithmetic and etc.) 
 int main()
 {
-  int array[256];   // a char would work... covers all the possible data
-  for (int i = 0; i < 10; i++) {
+  int array[MAX];   // a char would work... covers all the possible data
+  int c;
+  
+  for (int i = 0; i < MAX; i++) {
     array[i] = 0;
   }
-  
-  int state, itr, count, c;
-  state = OUT;
-  itr = 0;
-  count = 0;
 
   while ((c = getchar()) != EOF) {
-    if ((c == '\n') || (c == '\t') || (c == ' ')) {
-      array[itr++] = count;
-      count = 0;
-    } else {
-      ++count;
-    }
+    ++array[c];   // legal?
   }
-
-  for (int i = 0; i < 10; i++) {
-    for (int num = 0; num < array[i]; num++) {
+  
+  for (int i = 0; i < MAX; i++) {
+    printf("%c: ", i);
+    for (int j = 0; j < array[i]; j++) {
       printf("-");
     }
     printf("\n");
   }
+  
+  /*  
+  for (int i = 0; i < MAX; i++) {
+    printf("%c: %d\n", i, array[i]);
+  }
+  */
 }
