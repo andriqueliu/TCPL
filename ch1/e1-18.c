@@ -7,6 +7,7 @@ void copy(char to[], char from[]);
 
 // remove trailing blanks and tabs from lines of input, delete 
 // entirely blank lines
+// Print all of these lines at the end for convenience
 int main()
 {
   int len, max;
