@@ -5,7 +5,8 @@
 int pgetline(char line[], int maxline);
 void copy(char to[], char from[]);
 
-// print longest input line
+// remove trailing blanks and tabs from lines of input, delete 
+// entirely blank lines
 int main()
 {
   int len, max;

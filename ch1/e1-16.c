@@ -5,7 +5,8 @@
 int pgetline(char line[], int maxline);
 void copy(char to[], char from[]);
 
-// print longest input line
+// Revise main routine... print the length of arbitarily long input lines,
+// and as much as possible of the text
 int main()
 {
   int len, max;
@@ -16,6 +17,7 @@ int main()
   max = 0;
   // notice: calls a function and returns the length
   while((len = pgetline(line, MAXLINE)) > 0) {
+    printf("Length: %d\n", len);
     if (len > max) {
       max = len;
       copy(longest, line);
